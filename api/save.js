@@ -29,10 +29,14 @@ module.exports = async (req, res) => {
         record.ip = ip;
         
         if (isMongoConfigured()) {
-            const { db } = await require('./_mongo').connectToDatabase();
-            if (db) {
-                await db.collection('leaderboard').insertOne(record);
-                return res.status(200).json({ success: true, message: 'Đã lưu kết quả lên MongoDB.' });
+            try {
+                const { db } = await require('./_mongo').connectToDatabase();
+                if (db) {
+                    await db.collection('leaderboard').insertOne(record);
+                    return res.status(200).json({ success: true, message: 'Đã lưu kết quả lên MongoDB.' });
+                }
+            } catch (mongoError) {
+                console.warn('MongoDB connection failed, falling back to local file storage:', mongoError.message);
             }
         }
         
