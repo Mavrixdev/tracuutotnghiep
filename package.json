@@ -1,7 +1,7 @@
 {
   "name": "tracuudiem-2026",
   "version": "1.0.0",
-  "description": "Hệ thống Tra Cứu & Tính Điểm Xét Tốt Nghiệp THPT 2026 - Bản Nâng Cấp Thực Tế",
+  "description": "Hệ thống Tra Cứu & Tính Điểm Xét Tốt Nghiệp THPT 2026",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
