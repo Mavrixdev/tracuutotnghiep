@@ -18,14 +18,18 @@ module.exports = async (req, res) => {
     try {
         let history = [];
         if (isMongoConfigured()) {
-            const { db } = await require('./_mongo').connectToDatabase();
-            if (db) {
-                history = await db.collection('leaderboard')
-                    .find({})
-                    .sort({ score: -1 })
-                    .limit(100)
-                    .toArray();
-                return res.status(200).json({ success: true, data: history });
+            try {
+                const { db } = await require('./_mongo').connectToDatabase();
+                if (db) {
+                    history = await db.collection('leaderboard')
+                        .find({})
+                        .sort({ score: -1 })
+                        .limit(100)
+                        .toArray();
+                    return res.status(200).json({ success: true, data: history });
+                }
+            } catch (mongoError) {
+                console.warn('MongoDB connection failed, falling back to local file storage:', mongoError.message);
             }
         }
         
