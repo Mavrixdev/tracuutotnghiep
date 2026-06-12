@@ -1,0 +1,2673 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Điểm Xét Tốt Nghiệp THPT 2026 - Bản Nâng Cấp Thực Tế</title>
+
+    <!-- SEO Tags -->
+    <meta name="description"
+        content="Hệ thống tính điểm xét tốt nghiệp THPT năm 2026 chính xác và nhanh nhất theo phương án thi 2+2 mới nhất của Bộ GD&ĐT Việt Nam. Tích hợp phân tích tổ hợp môn đại học.">
+    <meta property="og:title" content="Tính Điểm Xét Tốt Nghiệp THPT 2026 - Chuẩn Quy Định Mới Bộ GD&ĐT">
+    <meta property="og:description"
+        content="Tính điểm xét tốt nghiệp THPT 2026 trực quan, chính xác nhất. Hỗ trợ tra cứu tổ hợp khối thi Đại học và xuất phiếu điểm.">
+    <meta property="og:image"
+        content="https://upload.wikimedia.org/wikipedia/vi/d/d4/Logo_B%E1%BB%99_Gi%C3%A1o_d%E1%BB%A5c_v%C3%A0_%C4%90%C3%A0o_t%E1%BA%A1o.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Structured SEO Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Công Cụ Tính Điểm Xét Tốt Nghiệp THPT 2026",
+      "description": "Tính toán điểm tốt nghiệp THPT quốc gia năm 2026 chuẩn xác và trực quan.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All"
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* CSS RESET & VARS */
+        :root {
+            --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+            /* Light Mode Colors */
+            --bg-primary: #f8fafc;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --border-color: rgba(226, 232, 240, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: rgba(79, 70, 229, 0.08);
+            --secondary: #06b6d4;
+            --secondary-light: rgba(6, 182, 212, 0.08);
+
+            --success: #10b981;
+            --success-light: rgba(16, 185, 129, 0.1);
+            --danger: #f43f5e;
+            --danger-light: rgba(244, 63, 94, 0.1);
+            --warning: #f59e0b;
+            --warning-light: rgba(245, 158, 11, 0.1);
+
+            --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 16px -6px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 24px;
+
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode Colors */
+            --bg-primary: #0b0f19;
+            --bg-card: rgba(17, 24, 39, 0.8);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --primary-light: rgba(99, 102, 241, 0.15);
+            --secondary: #22d3ee;
+            --secondary-light: rgba(34, 211, 238, 0.15);
+
+            --success: #34d399;
+            --success-light: rgba(52, 211, 153, 0.15);
+            --danger: #fb7185;
+            --danger-light: rgba(251, 113, 133, 0.15);
+
+            --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 16px -6px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            transition: var(--transition-smooth);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            padding-bottom: 60px;
+        }
+
+        /* Ambient Glow Backgrounds (Premium Soft Blur Style) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -220px;
+            left: -220px;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.08;
+            filter: blur(120px);
+            z-index: -1;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -220px;
+            right: -220px;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            background: var(--secondary);
+            opacity: 0.08;
+            filter: blur(120px);
+            z-index: -1;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        /* CONTAINER LAYOUT */
+        .app-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* HEADER */
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 3s infinite;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-subtitle {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            display: block;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-icon {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-icon:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* MAIN DUAL COLUMN GRID */
+        .app-main {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .app-main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CARD COMPONENT */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: var(--transition-smooth);
+            margin-bottom: 24px;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(99, 102, 241, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 4px solid var(--primary);
+            padding-left: 10px;
+        }
+
+        /* FORM CONTROLS */
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .app-container {
+                padding: 16px 12px;
+            }
+
+            .card {
+                padding: 20px 16px;
+                margin-bottom: 16px;
+                border-radius: var(--radius-md);
+            }
+
+            body::before {
+                width: 260px;
+                height: 260px;
+                top: -120px;
+                left: -120px;
+                filter: blur(80px);
+            }
+
+            body::after {
+                width: 260px;
+                height: 260px;
+                bottom: -120px;
+                right: -120px;
+                filter: blur(80px);
+            }
+
+            .logo-title {
+                font-size: 1.3rem;
+            }
+
+            .form-grid-2,
+            .form-grid-3 {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .form-group-combined {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: var(--radius-md);
+            border: 1px dashed var(--border-color);
+        }
+
+        [data-theme="dark"] .form-group-combined {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        label {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .input-control {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            font-family: var(--font-main);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .input-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-light);
+            background: var(--bg-card);
+        }
+
+        .select-control {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: var(--font-main);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            outline: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .select-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+
+        /* BADGES FOR INFO */
+        .weight-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 2px 8px;
+            border-radius: 99px;
+            align-self: flex-start;
+            margin-top: 2px;
+        }
+
+        /* INPUT ERRORS */
+        .input-invalid {
+            border-color: var(--danger) !important;
+            box-shadow: 0 0 0 4px var(--danger-light) !important;
+        }
+
+        .input-error-msg {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--danger);
+            animation: slideDown 0.2s ease-out;
+            margin-top: 2px;
+        }
+
+        /* SIDEBAR / STICKY RESULT DASHBOARD */
+        .sidebar-column {
+            position: sticky;
+            top: 24px;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-primary));
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card.passed-glow {
+            border-color: var(--success);
+        }
+
+        .result-card.failed-glow {
+            border-color: var(--danger);
+        }
+
+        /* Live score layout */
+        .score-circle-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 24px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .score-glow-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+            animation: pulse 4s infinite;
+        }
+
+        .score-circle {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-smooth);
+            z-index: 2;
+        }
+
+        .score-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 160px;
+            height: 160px;
+            transform: rotate(-90deg);
+            z-index: 1;
+        }
+
+        .score-ring-bg {
+            stroke: var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .score-ring-fill {
+            transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.3s ease;
+        }
+
+        .score-circle.passed-border {
+            border-color: var(--success);
+        }
+
+        .score-circle.failed-border {
+            border-color: var(--danger);
+        }
+
+        .score-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .score-circle.passed-border .score-number {
+            background: linear-gradient(135deg, var(--success), #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .score-circle.failed-border .score-number {
+            background: linear-gradient(135deg, var(--danger), #e11d48);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .score-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 99px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .status-badge.passed {
+            color: var(--success);
+            background: var(--success-light);
+        }
+
+        .status-badge.failed {
+            color: var(--danger);
+            background: var(--danger-light);
+        }
+
+        .status-icon {
+            font-size: 1.05rem;
+        }
+
+        .status-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .text-passed {
+            color: var(--success);
+        }
+
+        .text-failed {
+            color: var(--danger);
+        }
+
+        .result-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            padding: 0 16px;
+            margin-bottom: 24px;
+        }
+
+        /* Calculation Steps Tree */
+        .calc-steps {
+            background: rgba(0, 0, 0, 0.015);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 24px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .calc-steps {
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        .calc-step-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .calc-step-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .calc-step-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .formula-preview {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        /* Save block */
+        .save-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* BUTTONS */
+        .btn-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.95rem;
+            font-family: var(--font-main);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* PROGRESS BAR */
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 99px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 99px;
+            transition: width 0.5s cubic-bezier(0.1, 0.8, 0.2, 1), background-color 0.3s ease;
+        }
+
+        .fill-passed {
+            background: var(--success);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .fill-failed {
+            background: var(--danger);
+            box-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+        }
+
+        /* Result Placeholder State */
+        .result-placeholder-state {
+            padding: 40px 20px;
+            color: var(--text-muted);
+        }
+
+        .placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            opacity: 0.6;
+        }
+
+        .placeholder-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* HISTORY CARD */
+        .history-card {
+            max-height: 480px;
+            overflow-y: auto;
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 320px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .history-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .history-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .history-list::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 99px;
+        }
+
+        .empty-history {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 30px 10px;
+            border: 1.5px dashed var(--border-color);
+            border-radius: var(--radius-md);
+        }
+
+
+        .history-item-card {
+            background: var(--bg-primary);
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            animation: fadeIn 0.3s ease-out;
+            transition: var(--transition-smooth);
+        }
+
+        .history-item-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 8px 20px -6px rgba(99, 102, 241, 0.15);
+        }
+
+        [data-theme="dark"] .history-item-card:hover {
+            box-shadow: 0 8px 24px -6px rgba(99, 102, 241, 0.3);
+        }
+
+        .history-item-card.border-passed {
+            border-left: 5px solid var(--success);
+        }
+
+        .history-item-card.border-failed {
+            border-left: 5px solid var(--danger);
+        }
+
+        /* Leaderboard Siêu Cấp Rank Badges */
+        .rank-badge-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .rank-gold {
+            background: linear-gradient(135deg, #ffe066 0%, #f59e0b 100%);
+            color: #78350f;
+            border: 1.5px solid #fbbf24;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+        }
+
+        .rank-silver {
+            background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+            color: #1e293b;
+            border: 1.5px solid #cbd5e1;
+            box-shadow: 0 0 10px rgba(148, 163, 184, 0.3);
+        }
+
+        .rank-bronze {
+            background: linear-gradient(135deg, #ffedd5 0%, #c2410c 100%);
+            color: #ffffff;
+            border: 1.5px solid #f97316;
+            box-shadow: 0 0 10px rgba(194, 65, 12, 0.3);
+        }
+
+        .rank-default {
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            border: 1.5px solid var(--border-color);
+        }
+
+        .history-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 24px;
+        }
+
+        .history-item-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .history-item-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 99px;
+        }
+
+        .history-item-badge.bg-passed {
+            background: var(--success-light);
+            color: var(--success);
+        }
+
+        .history-item-badge.bg-failed {
+            background: var(--danger-light);
+            color: var(--danger);
+        }
+
+        .history-item-details {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .history-item-meta {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .btn-delete-history {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-delete-history:hover {
+            color: var(--danger);
+            background: var(--danger-light);
+        }
+
+        /* FAQ ACCORDION */
+        details {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            background: var(--bg-card);
+            transition: var(--transition-smooth);
+            margin-bottom: 12px;
+        }
+
+        details[open] {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        summary {
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-primary);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.3rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-content {
+            margin-top: 12px;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            border-top: 1px dashed var(--border-color);
+            padding-top: 10px;
+        }
+
+        .faq-content ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        .faq-content li {
+            margin-bottom: 4px;
+        }
+
+        /* TOAST SYSTEM */
+        #toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            pointer-events: none;
+        }
+
+        .toast {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            font-size: 0.88rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* SKELETON LOADER ANIMATION */
+        .skeleton-history {
+            height: 90px;
+            background: linear-gradient(90deg,
+                    var(--bg-primary) 25%,
+                    var(--border-color) 50%,
+                    var(--bg-primary) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.6s infinite linear;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 12px;
+            opacity: 0.75;
+        }
+
+        @keyframes skeleton-loading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* FOOTER */
+        .app-footer {
+            text-align: center;
+            margin-top: 48px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* KEYFRAMES & ANIMATIONS */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CHARTS CONTAINER */
+        .chart-card {
+            margin-top: 24px;
+        }
+
+        .charts-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+
+
+        /* PRINT STYLE SHEET */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            body::before,
+            body::after {
+                display: none !important;
+            }
+
+            .app-container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .app-header,
+            .form-column,
+            .btn-icon,
+            .history-card,
+            .faq-card,
+            .btn-actions,
+            #toast-container,
+            .app-footer,
+            .save-section,
+            .chart-card {
+                display: none !important;
+            }
+
+            .app-main {
+                display: block !important;
+            }
+
+            .sidebar-column {
+                width: 100% !important;
+                position: relative !important;
+                top: 0 !important;
+            }
+
+            .result-card {
+                border: 2px solid #000 !important;
+                box-shadow: none !important;
+                background: white !important;
+                color: black !important;
+                padding: 40px !important;
+                border-radius: 0 !important;
+            }
+
+            .score-circle {
+                border: 3px solid #000 !important;
+                background: white !important;
+                box-shadow: none !important;
+            }
+
+            .score-number {
+                background: none !important;
+                -webkit-text-fill-color: black !important;
+                color: black !important;
+            }
+
+            .print-header-sheet {
+                display: block !important;
+                text-align: center;
+                margin-bottom: 40px;
+                padding-bottom: 20px;
+                border-bottom: 2px solid #000;
+            }
+
+            .print-header-sheet h1 {
+                font-size: 22px;
+                font-weight: 800;
+                margin-bottom: 6px;
+            }
+
+            .print-header-sheet p {
+                font-size: 14px;
+                color: #555;
+            }
+
+            .calc-steps {
+                border: 1px solid #000 !important;
+                background: white !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hidden Print Header -->
+    <div class="print-header-sheet" style="display: none;">
+        <h1>BÁO CÁO KẾT QUẢ TÍNH ĐIỂM XÉT TỐT NGHIỆP THPT 2026</h1>
+        <p>Hệ thống tự động tra cứu & tính toán theo Quy chế mới nhất của Bộ Giáo Dục & Đào Tạo</p>
+        <p style="margin-top: 15px; font-weight: 600;">Họ và tên thí sinh: <span id="print-name-value"
+                style="text-decoration: underline;">____________________</span></p>
+        <p>Ngày kết xuất phiếu: <span id="print-time-value"></span></p>
+    </div>
+
+    <!-- Hidden Canvas for Share Card -->
+    <canvas id="share-canvas" width="1200" height="1200" style="display: none;"></canvas>
+
+    <div class="app-container">
+        <!-- HEADER TOPBAR -->
+        <header class="app-header">
+            <div class="logo-area">
+                <div class="logo-icon">🎓</div>
+                <div>
+                    <h1 class="logo-title">Xét Tốt Nghiệp THPT 2026</h1>
+                    <span class="logo-subtitle">Bản nâng cấp Fullstack tích hợp Analytics & Admissions</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggle" class="btn-icon" title="Đổi giao diện Sáng / Tối">
+                    <!-- Sun icon -->
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" style="display:none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon icon -->
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <main class="app-main">
+            <!-- INPUT COLUMN -->
+            <div class="form-column">
+                <!-- CARD 1: ĐIỂM THI -->
+                <section class="card">
+                    <h2 class="card-title">1. Điểm thi THPT 2026</h2>
+                    <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 20px;">
+                        Thí sinh nhập điểm cho 2 môn bắt buộc và chọn 2 môn tự chọn trong danh sách dưới đây (Thang điểm
+                        10).
+                    </div>
+
+                    <div class="form-grid-2">
+                        <!-- Toán (Bắt buộc) -->
+                        <div class="form-group">
+                            <label for="toan">Toán (Bắt buộc)</label>
+                            <input type="number" id="toan" class="input-control" placeholder="ví dụ: 8.40" step="0.01"
+                                min="0" max="10">
+                        </div>
+
+                        <!-- Ngữ Văn (Bắt buộc) -->
+                        <div class="form-group">
+                            <label for="van">Ngữ Văn (Bắt buộc)</label>
+                            <input type="number" id="van" class="input-control" placeholder="ví dụ: 7.75" step="0.01"
+                                min="0" max="10">
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2" style="margin-top: 16px;">
+                        <!-- Môn Tự Chọn 1 -->
+                        <div class="form-group-combined">
+                            <label for="mon1">Môn tự chọn 1</label>
+                            <select id="mon1" class="select-control"></select>
+                            <input type="number" id="diem1" class="input-control" placeholder="Điểm môn 1" step="0.01"
+                                min="0" max="10">
+                        </div>
+
+                        <!-- Môn Tự Chọn 2 -->
+                        <div class="form-group-combined">
+                            <label for="mon2">Môn tự chọn 2</label>
+                            <select id="mon2" class="select-control"></select>
+                            <input type="number" id="diem2" class="input-control" placeholder="Điểm môn 2" step="0.01"
+                                min="0" max="10">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CARD 2: ĐIỂM HỌC BẠ -->
+                <section class="card">
+                    <h2 class="card-title">2. Điểm trung bình 3 năm THPT</h2>
+                    <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 20px;">
+                        Điểm trung bình (ĐTB) cả năm của các lớp được tính theo trọng số hệ số tăng dần.
+                    </div>
+
+                    <div class="form-grid-3">
+                        <!-- Lớp 10 -->
+                        <div class="form-group">
+                            <label for="dtb10">Lớp 10</label>
+                            <input type="number" id="dtb10" class="input-control" placeholder="ĐTB Lớp 10" step="0.01"
+                                min="0" max="10">
+                            <span class="weight-badge">Hệ số 1</span>
+                        </div>
+
+                        <!-- Lớp 11 -->
+                        <div class="form-group">
+                            <label for="dtb11">Lớp 11</label>
+                            <input type="number" id="dtb11" class="input-control" placeholder="ĐTB Lớp 11" step="0.01"
+                                min="0" max="10">
+                            <span class="weight-badge">Hệ số 2</span>
+                        </div>
+
+                        <!-- Lớp 12 -->
+                        <div class="form-group">
+                            <label for="dtb12">Lớp 12</label>
+                            <input type="number" id="dtb12" class="input-control" placeholder="ĐTB Lớp 12" step="0.01"
+                                min="0" max="10">
+                            <span class="weight-badge">Hệ số 3</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CARD 3: ƯU TIÊN & KHUYẾN KHÍCH -->
+                <section class="card">
+                    <h2 class="card-title">3. Điểm Ưu tiên & Khuyến khích</h2>
+                    <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 20px;">
+                        Nhập điểm cộng ưu tiên và khuyến khích (mỗi mục tối đa là 2.0 điểm).
+                    </div>
+
+                    <div class="form-grid-2">
+                        <!-- Điểm ưu tiên -->
+                        <div class="form-group">
+                            <label for="diemut">Điểm ưu tiên (Khuyến nghị: 0 - 2.0)</label>
+                            <input type="number" id="diemut" class="input-control" placeholder="ví dụ: 0.50 (KV2-NT)"
+                                step="0.01" min="0" max="2">
+                        </div>
+
+                        <!-- Điểm khuyến khích -->
+                        <div class="form-group">
+                            <label for="diemkk">Điểm khuyến khích (Mức trần: 2.0)</label>
+                            <input type="number" id="diemkk" class="input-control" placeholder="ví dụ: 1.50 (Nghề/HSG)"
+                                step="0.01" min="0" max="2">
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <!-- CARD: BIỂU ĐỒ PHÂN TÍCH (UX Upgrade 3) -->
+                <section class="card chart-card" id="analysis-charts-card" style="display: none;">
+                    <h2 class="card-title">Biểu đồ phân tích năng lực</h2>
+                    <div class="charts-grid">
+                        <div style="width: 100%;">
+                            <h4
+                                style="font-size: 0.88rem; margin-bottom: 10px; color: var(--text-secondary); text-align: center;">
+                                So sánh điểm các môn thi tốt nghiệp & Học bạ</h4>
+                            <div class="chart-container" style="position: relative; height:240px;">
+                                <canvas id="scoresChart"></canvas>
+                            </div>
+                        </div>
+                        <div style="width: 100%; margin-top: 15px;">
+                            <h4
+                                style="font-size: 0.88rem; margin-bottom: 10px; color: var(--text-secondary); text-align: center;">
+                                Xu hướng học bạ 3 năm THPT</h4>
+                            <div class="chart-container" style="position: relative; height:200px;">
+                                <canvas id="gpaChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RESULT & HISTORY COLUMN -->
+            <div class="sidebar-column">
+                <!-- CARD 4: LIVE RESULT DASHBOARD -->
+                <section id="result-card" class="card result-card">
+                    <!-- Empty State Placeholder -->
+                    <div id="result-placeholder" class="result-placeholder-state">
+                        <div class="placeholder-icon">📊</div>
+                        <div class="placeholder-text">
+                            <strong>Đang đợi dữ liệu nhập</strong><br>
+                            Hãy điền đầy đủ điểm thi (4 môn) và học bạ (3 năm) ở cột bên để xem kết quả tính toán tức
+                            thì.
+                        </div>
+                    </div>
+
+                    <!-- Computed Display State -->
+                    <div id="result-display" style="display: none;">
+                        <div class="status-badge" id="status-badge"></div>
+
+                        <div class="score-circle-container">
+                            <div class="score-glow-bg"></div>
+                            <svg class="score-ring" width="160" height="160">
+                                <circle class="score-ring-bg" cx="80" cy="80" r="72" fill="transparent"
+                                    stroke-width="6" />
+                                <circle class="score-ring-fill" id="score-ring-fill" cx="80" cy="80" r="72"
+                                    fill="transparent" stroke-width="6" stroke-linecap="round" stroke-dasharray="452.4"
+                                    stroke-dashoffset="452.4" />
+                            </svg>
+                            <div class="score-circle" id="score-circle">
+                                <span class="score-number" id="score-value">0.00</span>
+                                <span class="score-label">Điểm DXTN</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="progress-fill"></div>
+                        </div>
+
+                        <h3 class="status-title" id="status-text"></h3>
+                        <p class="result-desc" id="result-description"></p>
+
+                        <!-- Dynamic Calculation Summary Table -->
+                        <div class="calc-steps">
+                            <div class="calc-step-title">Chi tiết tính toán</div>
+
+                            <div class="calc-step-item">
+                                <span>Tổng điểm 4 môn thi:</span>
+                                <span id="step-tong-4-mon" style="font-weight: 600;">0.00</span>
+                            </div>
+                            <div class="calc-step-item">
+                                <span>Điểm thi trung bình (4 môn):</span>
+                                <span id="step-thi-tb" style="font-weight: 600;">0.00</span>
+                            </div>
+                            <div class="calc-step-item">
+                                <span>Điểm trung bình 3 năm học bạ:</span>
+                                <span id="step-hoc-ba" style="font-weight: 600;">0.00</span>
+                            </div>
+                            <div class="calc-step-item">
+                                <span>Điểm khuyến khích quy đổi (KK/4):</span>
+                                <span id="step-kk-phan-tu" style="font-weight: 600;">0.00</span>
+                            </div>
+                            <div class="calc-step-item">
+                                <span>Điểm ưu tiên cộng thêm:</span>
+                                <span id="step-uu-tien" style="font-weight: 600;">0.00</span>
+                            </div>
+                            <div class="calc-step-item">
+                                <span>Công thức biểu diễn:</span>
+                                <span id="formula-live-eval"
+                                    style="font-family: monospace; font-size: 0.8rem; color: var(--primary); word-break: break-all;"></span>
+                            </div>
+                        </div>
+
+                        <!-- Save block -->
+                        <div class="save-section" id="candidate-name-group">
+                            <div class="form-group" style="text-align: left;">
+                                <label for="candidate-name">Tên học sinh</label>
+                                <input type="text" id="candidate-name" class="input-control"
+                                    placeholder="Nhập tên của bạn...">
+                            </div>
+                            <div class="form-group" style="text-align: left; margin-top: 10px;">
+                                <label for="candidate-sbd">Số báo danh (8 số)</label>
+                                <input type="text" id="candidate-sbd" class="input-control"
+                                    placeholder="ví dụ: 12345678">
+                            </div>
+                            <div class="form-group" style="text-align: left; margin-top: 10px;">
+                                <label for="candidate-type">Loại thí sinh</label>
+                                <select id="candidate-type" class="select-control">
+                                    <option value="THÍ SINH TỰ DO">THÍ SINH TỰ DO</option>
+                                    <option value="HỌC SINH THPT">HỌC SINH THPT</option>
+                                    <option value="HỌC SINH GDTX">HỌC SINH GDTX</option>
+                                </select>
+                            </div>
+                            <button id="btn-save" class="btn btn-primary btn-block" style="margin-top: 12px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                                    <polyline points="7 3 7 8 15 8"></polyline>
+                                </svg>
+                                Lưu và Xếp hạng
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Global Buttons -->
+                    <div class="btn-actions">
+                        <button id="btn-reset" class="btn btn-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                            </svg>
+                            Nhập lại
+                        </button>
+                        <button id="btn-print" class="btn btn-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                                </path>
+                                <rect x="6" y="14" width="12" height="8"></rect>
+                            </svg>
+                            In kết quả
+                        </button>
+                    </div>
+
+                    <button id="btn-download-image" class="btn btn-secondary btn-block"
+                        style="margin-top: 10px; display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                        </svg>
+                        Chia sẻ / Tải ảnh báo điểm
+                    </button>
+                </section>
+
+                <!-- CARD 5: LEADERBOARD LIST -->
+                <section class="card history-card">
+                    <h2 class="card-title">Bảng Xếp Hạng Điểm Cao (Đồng bộ Server)</h2>
+                    <div class="history-list" id="history-items">
+                        <div class="empty-history">Chưa có thí sinh nào trong bảng xếp hạng.</div>
+                    </div>
+                </section>
+
+                <!-- CARD 6: FAQ ACCORDION -->
+                <section class="card faq-card">
+                    <h2 class="card-title">Thông tin & Quy định</h2>
+
+                    <details>
+                        <summary>Quy chế thi tốt nghiệp THPT 2026 có gì mới?</summary>
+                        <div class="faq-content">
+                            Từ năm 2026, Bộ GD&ĐT áp dụng phương án thi mới nhằm phù hợp chương trình GDPT 2018:
+                            <ul>
+                                <li><strong>2 môn bắt buộc:</strong> Toán và Ngữ Văn.</li>
+                                <li><strong>2 môn tự chọn:</strong> Thí sinh tự chọn 2 môn từ các môn học ở trường bao
+                                    gồm: Vật Lý, Hóa Học, Sinh Học, Lịch Sử, Địa Lý, Giáo dục KTPL, Tin Học, Công Nghệ.
+                                </li>
+                                <li>Giảm tải đáng kể áp lực thi cử từ 6 môn xuống còn 4 môn thi.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Công thức tính điểm xét tốt nghiệp (DXTN)</summary>
+                        <div class="faq-content">
+                            Điểm xét tốt nghiệp THPT 2026 được tính trên sự kết hợp giữa điểm thi tốt nghiệp (chiếm 50%)
+                            và kết quả học bạ 3 năm THPT (chiếm 50%):
+                            <br><br>
+                            <code>DXTN = ((Điểm thi TB + Điểm KK/4 + ĐTB Học bạ) / 2) + Điểm Ưu tiên</code>
+                            <br><br>
+                            Trong đó:
+                            <ul>
+                                <li><strong>Điểm thi TB</strong> = Tổng điểm 4 môn thi chia cho 4.</li>
+                                <li><strong>ĐTB Học bạ</strong> = (ĐTB Lớp 10 × 1 + ĐTB Lớp 11 × 2 + ĐTB Lớp 12 × 3) /
+                                    6.</li>
+                                <li><strong>Điểm KK</strong> = Điểm khuyến khích (tối đa 2 điểm).</li>
+                                <li><strong>Điểm Ưu tiên</strong> = Điểm cộng theo khu vực hoặc diện chính sách đặc biệt
+                                    (tối đa 2 điểm).</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Thế nào là điểm liệt trong kỳ thi?</summary>
+                        <div class="faq-content">
+                            Theo quy định, điểm liệt đối với từng bài thi độc lập trong kỳ thi tốt nghiệp THPT là
+                            <strong>1.0 điểm trở xuống (tức ≤ 1.0 điểm)</strong>.
+                            <br><br>
+                            Nếu thí sinh có bất kỳ môn thi nào trong số 4 môn xét tốt nghiệp có điểm số nhỏ hơn hoặc
+                            bằng 1.0, thí sinh sẽ <strong>bị trượt tốt nghiệp ngay lập tức</strong>, kể cả khi Điểm xét
+                            tốt nghiệp tổng thể đạt trên 5.0.
+                        </div>
+                    </details>
+                </section>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <p>© 2026 Hệ thống tính điểm xét tốt nghiệp THPT - Made By MavrixDev 💖</p>
+            <p style="margin-top: 4px;">Thông tin công thức cập nhật chuẩn xác theo các dự thảo và quy định mới nhất từ
+                Bộ GD&ĐT Việt Nam.</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container"></div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Subject lists mapping for dropdown select options
+        const subjects = [
+            { value: 'ly', name: 'Vật Lý' },
+            { value: 'hoa', name: 'Hóa Học' },
+            { value: 'sinh', name: 'Sinh Học' },
+            { value: 'su', name: 'Lịch Sử' },
+            { value: 'dia', name: 'Địa Lý' },
+            { value: 'ktpl', name: 'Giáo dục KTPL' },
+            { value: 'tin', name: 'Tin Học' },
+            { value: 'cn', name: 'Công Nghệ' }
+        ];
+
+        // Calculation history array loaded from API / localStorage fallback
+        let historyList = [];
+
+        // Chart objects global references
+        let scoresChart = null;
+        let gpaChart = null;
+
+        // DOM elements
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const selectMon1 = document.getElementById('mon1');
+        const selectMon2 = document.getElementById('mon2');
+        const btnReset = document.getElementById('btn-reset');
+        const btnSave = document.getElementById('btn-save');
+        const btnPrint = document.getElementById('btn-print');
+        const btnDownloadImage = document.getElementById('btn-download-image');
+
+        // Setup initial application states
+        window.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            populateDropdowns();
+            loadHistory();
+            attachInputListeners();
+        });
+
+        // Toggle and Load Themes
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcons(savedTheme);
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const activeTheme = document.documentElement.getAttribute('data-theme');
+            const targetTheme = activeTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            localStorage.setItem('theme', targetTheme);
+            updateThemeIcons(targetTheme);
+            updateChartsTheme();
+        });
+
+        function updateThemeIcons(theme) {
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            if (theme === 'dark') {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            } else {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            }
+        }
+
+        // Update Charts Theme colors dynamically
+        function updateChartsTheme() {
+            if (!scoresChart || !gpaChart) return;
+            const theme = document.documentElement.getAttribute('data-theme');
+            const textColor = theme === 'dark' ? '#f8fafc' : '#0f172a';
+            const gridColor = theme === 'dark' ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.05)';
+            const primaryColor = theme === 'dark' ? '#6366f1' : '#4f46e5';
+            const barColors = theme === 'dark' ? 
+                ['#6366f1', '#818cf8', '#22d3ee', '#67e8f9', '#34d399', '#fbbf24'] :
+                ['#4f46e5', '#818cf8', '#06b6d4', '#22d3ee', '#10b981', '#f59e0b'];
+
+            // Update scoresChart colors
+            scoresChart.data.datasets[0].backgroundColor = barColors;
+
+            // Update gpaChart colors
+            gpaChart.data.datasets[0].borderColor = primaryColor;
+            gpaChart.data.datasets[0].pointBackgroundColor = primaryColor;
+            gpaChart.data.datasets[0].backgroundColor = theme === 'dark' ? 'rgba(99, 102, 241, 0.15)' : 'rgba(79, 70, 229, 0.08)';
+
+            [scoresChart, gpaChart].forEach(chart => {
+                chart.options.scales.x.grid.color = gridColor;
+                chart.options.scales.y.grid.color = gridColor;
+                chart.options.scales.x.ticks.color = textColor;
+                chart.options.scales.y.ticks.color = textColor;
+                chart.update();
+            });
+        }
+
+        // Dynamically build selector options and avoid double choice options
+        function populateDropdowns() {
+            const val1 = selectMon1.value;
+            const val2 = selectMon2.value;
+
+            selectMon1.innerHTML = '<option value="">-- Chọn môn 1 --</option>';
+            selectMon2.innerHTML = '<option value="">-- Chọn môn 2 --</option>';
+
+            subjects.forEach(sub => {
+                // Dropdown 1
+                const opt1 = document.createElement('option');
+                opt1.value = sub.value;
+                opt1.textContent = sub.name;
+                if (sub.value === val2 && val2 !== '') {
+                    opt1.disabled = true; // disable if active in 2
+                }
+                selectMon1.appendChild(opt1);
+
+                // Dropdown 2
+                const opt2 = document.createElement('option');
+                opt2.value = sub.value;
+                opt2.textContent = sub.name;
+                if (sub.value === val1 && val1 !== '') {
+                    opt2.disabled = true; // disable if active in 1
+                }
+                selectMon2.appendChild(opt2);
+            });
+
+            // Restore previously selected choices
+            selectMon1.value = val1;
+            selectMon2.value = val2;
+        }
+
+        // Attach recalculation triggers to all inputs
+        function attachInputListeners() {
+            const inputs = document.querySelectorAll('.input-control, .select-control');
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    if (input.tagName === 'SELECT') {
+                        populateDropdowns();
+                    }
+                    tinhDiem();
+                });
+                input.addEventListener('change', () => {
+                    if (input.tagName === 'SELECT') {
+                        populateDropdowns();
+                    }
+                    tinhDiem();
+                });
+            });
+
+            // SBD constraint: digits only, max 8 length
+            const sbdInput = document.getElementById('candidate-sbd');
+            if (sbdInput) {
+                sbdInput.addEventListener('input', (e) => {
+                    let val = e.target.value.replace(/\D/g, ''); // strip non-digits
+                    if (val.length > 8) {
+                        val = val.slice(0, 8);
+                    }
+                    e.target.value = val;
+                });
+            }
+        }
+
+        // Field value verification helper
+        function validateField(id, min, max, labelName) {
+            const el = document.getElementById(id);
+            const val = el.value.trim();
+            const parent = el.closest('.form-group') || el.parentElement;
+
+            // Clear previous errors
+            const oldErr = parent.querySelector('.input-error-msg');
+            if (oldErr) oldErr.remove();
+            el.classList.remove('input-invalid');
+
+            if (val === '') return true; // Empty fields are okay while typing
+
+            const num = parseFloat(val);
+            if (isNaN(num) || num < min || num > max) {
+                el.classList.add('input-invalid');
+                const errSpan = document.createElement('span');
+                errSpan.className = 'input-error-msg';
+                errSpan.textContent = `${labelName} phải từ ${min} đến ${max}`;
+                parent.appendChild(errSpan);
+                return false;
+            }
+            return true;
+        }
+
+        // Main Calculation logic triggered in real-time
+        function tinhDiem() {
+            // Validate all inputs before doing work
+            const vToan = validateField('toan', 0, 10, 'Điểm Toán');
+            const vVan = validateField('van', 0, 10, 'Điểm Văn');
+            const vDiem1 = validateField('diem1', 0, 10, 'Điểm môn tự chọn 1');
+            const vDiem2 = validateField('diem2', 0, 10, 'Điểm môn tự chọn 2');
+            const vD10 = validateField('dtb10', 0, 10, 'ĐTB lớp 10');
+            const vD11 = validateField('dtb11', 0, 10, 'ĐTB lớp 11');
+            const vD12 = validateField('dtb12', 0, 10, 'ĐTB lớp 12');
+            const vUT = validateField('diemut', 0, 2, 'Điểm ưu tiên');
+            const vKK = validateField('diemkk', 0, 2, 'Điểm khuyến khích');
+
+            const hasErrors = !vToan || !vVan || !vDiem1 || !vDiem2 || !vD10 || !vD11 || !vD12 || !vUT || !vKK;
+
+            // Grab elements
+            const toanVal = document.getElementById('toan').value;
+            const vanVal = document.getElementById('van').value;
+            const mon1Val = selectMon1.value;
+            const diem1Val = document.getElementById('diem1').value;
+            const mon2Val = selectMon2.value;
+            const diem2Val = document.getElementById('diem2').value;
+            const dtb10Val = document.getElementById('dtb10').value;
+            const dtb11Val = document.getElementById('dtb11').value;
+            const dtb12Val = document.getElementById('dtb12').value;
+
+            const placeholder = document.getElementById('result-placeholder');
+            const display = document.getElementById('result-display');
+            const card = document.getElementById('result-card');
+
+            // Verify if necessary inputs are completed
+            const allFilled = toanVal !== '' && vanVal !== '' &&
+                mon1Val !== '' && diem1Val !== '' &&
+                mon2Val !== '' && diem2Val !== '' &&
+                dtb10Val !== '' && dtb11Val !== '' && dtb12Val !== '';
+
+            if (!allFilled || hasErrors) {
+                placeholder.style.display = 'block';
+                display.style.display = 'none';
+                btnDownloadImage.style.display = 'none';
+                document.getElementById('analysis-charts-card').style.display = 'none';
+                card.classList.remove('passed-glow', 'failed-glow');
+                return;
+            }
+
+            // Perform calculations
+            const toan = parseFloat(toanVal);
+            const van = parseFloat(vanVal);
+            const diem1 = parseFloat(diem1Val);
+            const diem2 = parseFloat(diem2Val);
+            const dtb10 = parseFloat(dtb10Val);
+            const dtb11 = parseFloat(dtb11Val);
+            const dtb12 = parseFloat(dtb12Val);
+
+            // Priority & Incentive are optional, default to 0 if not entered
+            const diemut = parseFloat(document.getElementById('diemut').value) || 0;
+            const diemkk = parseFloat(document.getElementById('diemkk').value) || 0;
+
+            const tong4mon = toan + van + diem1 + diem2;
+
+            // 1. Exam Score Average
+            const diemThiTB = tong4mon / 4;
+
+            // 2. High School 3-Year Weighted Average
+            const dtbHocBa = (dtb10 * 1 + dtb11 * 2 + dtb12 * 3) / 6;
+
+            // 3. Final Graduation Calculation (DXTN)
+            const phanThi = diemThiTB + (diemkk / 4);
+            let dxtn = ((phanThi + dtbHocBa) / 2) + diemut;
+
+            // Rounding to exactly 2 decimals and clamping
+            dxtn = Math.round(dxtn * 100) / 100;
+            dxtn = Math.min(10, Math.max(0, dxtn));
+
+            // Check fail cases (Liet is <= 1.0)
+            const isLiet = (toan <= 1.0 || van <= 1.0 || diem1 <= 1.0 || diem2 <= 1.0);
+            const isPassed = (dxtn >= 5.0) && !isLiet;
+
+            // Update DOM Results
+            placeholder.style.display = 'none';
+            display.style.display = 'block';
+            btnDownloadImage.style.display = 'inline-flex';
+
+            const valScore = document.getElementById('score-value');
+            const scoreCircle = document.getElementById('score-circle');
+            const statusBadge = document.getElementById('status-badge');
+            const statusText = document.getElementById('status-text');
+            const resultDesc = document.getElementById('result-description');
+            const progressFill = document.getElementById('progress-fill');
+
+            valScore.textContent = dxtn.toFixed(2);
+
+            // Update Progress Bar Slider (0-10 scores map to 0-100% width)
+            progressFill.style.width = `${dxtn * 10}%`;
+
+            // Update SVG Circular Progress Ring
+            const ringFill = document.getElementById('score-ring-fill');
+            if (ringFill) {
+                const circumference = 452.4;
+                const offset = circumference - (dxtn / 10) * circumference;
+                ringFill.style.strokeDashoffset = offset;
+                ringFill.style.stroke = isPassed ? 'var(--success)' : 'var(--danger)';
+            }
+
+            if (isPassed) {
+                // Passed visual states
+                card.className = 'card result-card passed-glow';
+                scoreCircle.className = 'score-circle passed-border';
+                progressFill.className = 'progress-bar-fill fill-passed';
+
+                statusBadge.className = 'status-badge passed';
+                statusBadge.innerHTML = '<span class="status-icon">✓</span> ĐỖ TỐT NGHIỆP';
+
+                statusText.className = 'status-title text-passed';
+                statusText.textContent = 'Đủ điều kiện tốt nghiệp';
+
+                resultDesc.textContent = 'Chúc mừng! Bạn đã hoàn thành kỳ thi và đạt đủ các điều kiện tốt nghiệp THPT theo đúng quy chuẩn năm 2026.';
+            } else {
+                // Failed visual states
+                card.className = 'card result-card failed-glow';
+                scoreCircle.className = 'score-circle failed-border';
+                progressFill.className = 'progress-bar-fill fill-failed';
+
+                statusBadge.className = 'status-badge failed';
+                statusBadge.innerHTML = '<span class="status-icon">✗</span> CHƯA TỐT NGHIỆP';
+
+                statusText.className = 'status-title text-failed';
+                statusText.textContent = 'Chưa đủ điều kiện tốt nghiệp';
+
+                if (isLiet) {
+                    const lList = [];
+                    if (toan <= 1.0) lList.push('Toán');
+                    if (van <= 1.0) lList.push('Ngữ Văn');
+                    if (diem1 <= 1.0) lList.push(selectMon1.options[selectMon1.selectedIndex].text);
+                    if (diem2 <= 1.0) lList.push(selectMon2.options[selectMon2.selectedIndex].text);
+                    resultDesc.textContent = `Rất tiếc! Bạn bị điểm liệt (≤ 1.0 điểm) tại môn: ${lList.join(', ')}. Quy chế quy định tất cả bài thi dùng xét tuyển tốt nghiệp phải đạt trên 1.0 điểm.`;
+                } else {
+                    resultDesc.textContent = `Điểm xét tốt nghiệp của bạn chỉ đạt ${dxtn.toFixed(2)}, chưa đủ mức điểm tối thiểu 5.0 để công nhận tốt nghiệp THPT.`;
+                }
+            }
+
+            // Update Formula & Step lists in Dashboard
+            document.getElementById('step-tong-4-mon').textContent = tong4mon.toFixed(2);
+            document.getElementById('step-thi-tb').textContent = diemThiTB.toFixed(2);
+            document.getElementById('step-kk-phan-tu').textContent = (diemkk / 4).toFixed(2);
+            document.getElementById('step-hoc-ba').textContent = dtbHocBa.toFixed(2);
+            document.getElementById('step-uu-tien').textContent = diemut.toFixed(2);
+
+            document.getElementById('formula-live-eval').innerHTML = `
+                (({${diemThiTB.toFixed(2)} + ${diemkk}/4} + ${dtbHocBa.toFixed(2)}) / 2) + ${diemut} = <strong>${dxtn.toFixed(2)}</strong>
+            `;
+
+            // Draw Charts
+            renderCharts(toan, van, diem1, diem2, diemThiTB, dtbHocBa, dtb10, dtb11, dtb12);
+        }
+
+        // Render visual Chart.js models
+        function renderCharts(toan, van, diem1, diem2, diemThiTB, dtbHocBa, dtb10, dtb11, dtb12) {
+            document.getElementById('analysis-charts-card').style.display = 'block';
+
+            const scoresCtx = document.getElementById('scoresChart').getContext('2d');
+            const gpaCtx = document.getElementById('gpaChart').getContext('2d');
+
+            const m1Name = selectMon1.options[selectMon1.selectedIndex].text;
+            const m2Name = selectMon2.options[selectMon2.selectedIndex].text;
+
+            const theme = document.documentElement.getAttribute('data-theme');
+            const textColor = theme === 'dark' ? '#f8fafc' : '#0f172a';
+            const gridColor = theme === 'dark' ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.05)';
+            const primaryColor = theme === 'dark' ? '#6366f1' : '#4f46e5';
+            const barColors = theme === 'dark' ? 
+                ['#6366f1', '#818cf8', '#22d3ee', '#67e8f9', '#34d399', '#fbbf24'] :
+                ['#4f46e5', '#818cf8', '#06b6d4', '#22d3ee', '#10b981', '#f59e0b'];
+
+            // Scores Bar Chart
+            if (scoresChart) {
+                scoresChart.data.labels = ['Toán', 'Văn', m1Name, m2Name, 'Điểm thi TB', 'ĐTB Học bạ'];
+                scoresChart.data.datasets[0].data = [toan, van, diem1, diem2, diemThiTB, dtbHocBa];
+                scoresChart.data.datasets[0].backgroundColor = barColors;
+                scoresChart.options.scales.x.grid.color = gridColor;
+                scoresChart.options.scales.y.grid.color = gridColor;
+                scoresChart.options.scales.x.ticks.color = textColor;
+                scoresChart.options.scales.y.ticks.color = textColor;
+                scoresChart.update();
+            } else {
+                scoresChart = new Chart(scoresCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Toán', 'Văn', m1Name, m2Name, 'Điểm thi TB', 'ĐTB Học bạ'],
+                        datasets: [{
+                            label: 'Điểm số',
+                            data: [toan, van, diem1, diem2, diemThiTB, dtbHocBa],
+                            backgroundColor: barColors,
+                            borderRadius: 6,
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                min: 0,
+                                max: 10,
+                                grid: { color: gridColor },
+                                ticks: { color: textColor }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: textColor }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // GPA Line Chart
+            if (gpaChart) {
+                gpaChart.data.datasets[0].data = [dtb10, dtb11, dtb12];
+                gpaChart.data.datasets[0].borderColor = primaryColor;
+                gpaChart.data.datasets[0].pointBackgroundColor = primaryColor;
+                gpaChart.data.datasets[0].backgroundColor = theme === 'dark' ? 'rgba(99, 102, 241, 0.15)' : 'rgba(79, 70, 229, 0.08)';
+                gpaChart.options.scales.x.grid.color = gridColor;
+                gpaChart.options.scales.y.grid.color = gridColor;
+                gpaChart.options.scales.x.ticks.color = textColor;
+                gpaChart.options.scales.y.ticks.color = textColor;
+                gpaChart.update();
+            } else {
+                gpaChart = new Chart(gpaCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Lớp 10', 'Lớp 11', 'Lớp 12'],
+                        datasets: [{
+                            label: 'ĐTB học bạ cả năm',
+                            data: [dtb10, dtb11, dtb12],
+                            borderColor: primaryColor,
+                            backgroundColor: theme === 'dark' ? 'rgba(99, 102, 241, 0.15)' : 'rgba(79, 70, 229, 0.08)',
+                            fill: true,
+                            tension: 0.3,
+                            borderWidth: 3,
+                            pointBackgroundColor: primaryColor,
+                            pointRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                min: 0,
+                                max: 10,
+                                grid: { color: gridColor },
+                                ticks: { color: textColor }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: textColor }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+
+        // Form reset handler
+        btnReset.addEventListener('click', () => {
+            const inputs = document.querySelectorAll('.input-control');
+            inputs.forEach(input => {
+                input.value = '';
+                const parent = input.closest('.form-group') || input.parentElement;
+                const err = parent.querySelector('.input-error-msg');
+                if (err) err.remove();
+                input.classList.remove('input-invalid');
+            });
+
+            // Reset Select Dropdowns
+            selectMon1.value = '';
+            selectMon2.value = '';
+            document.getElementById('candidate-type').value = 'THÍ SINH TỰ DO';
+            populateDropdowns();
+
+            // Reset Result Card display
+            document.getElementById('result-placeholder').style.display = 'block';
+            document.getElementById('result-display').style.display = 'none';
+            btnDownloadImage.style.display = 'none';
+            document.getElementById('result-card').className = 'card result-card';
+            document.getElementById('analysis-charts-card').style.display = 'none';
+
+            showToast('Đã làm trống toàn bộ biểu mẫu.');
+        });
+
+        // History Log - Load from Server API / localStorage
+        function loadHistory() {
+            // Render skeleton cards immediately to indicate loading
+            const container = document.getElementById('history-items');
+            if (container) {
+                container.innerHTML = `
+                    <div class="skeleton-history"></div>
+                    <div class="skeleton-history"></div>
+                `;
+            }
+
+            fetch('/api/history')
+                .then(res => res.json())
+                .then(res => {
+                    if (res.success) {
+                        historyList = res.data;
+                        renderHistory();
+                    }
+                })
+                .catch(err => {
+                    console.error('API Error, loading offline data:', err);
+                    const saved = localStorage.getItem('dxtn_history_2026');
+                    if (saved) {
+                        historyList = JSON.parse(saved);
+                        renderHistory();
+                    }
+                });
+        }
+
+        // History Log - Save current score state to server DB
+        btnSave.addEventListener('click', () => {
+            const nameInput = document.getElementById('candidate-name');
+            const candidateName = nameInput.value.trim() || 'Thí sinh tự do';
+
+            const toan = parseFloat(document.getElementById('toan').value);
+            const van = parseFloat(document.getElementById('van').value);
+            const mon1Val = selectMon1.value;
+            const diem1 = parseFloat(document.getElementById('diem1').value);
+            const mon2Val = selectMon2.value;
+            const diem2 = parseFloat(document.getElementById('diem2').value);
+            const dtb10 = parseFloat(document.getElementById('dtb10').value);
+            const dtb11 = parseFloat(document.getElementById('dtb11').value);
+            const dtb12 = parseFloat(document.getElementById('dtb12').value);
+            const diemut = parseFloat(document.getElementById('diemut').value) || 0;
+            const diemkk = parseFloat(document.getElementById('diemkk').value) || 0;
+
+            // Recompute values to record
+            const diemThiTB = (toan + van + diem1 + diem2) / 4;
+            const dtbHocBa = (dtb10 * 1 + dtb11 * 2 + dtb12 * 3) / 6;
+            const phanThi = diemThiTB + (diemkk / 4);
+            let dxtn = ((phanThi + dtbHocBa) / 2) + diemut;
+            dxtn = Math.round(dxtn * 100) / 100;
+            dxtn = Math.min(10, Math.max(0, dxtn));
+
+            const isLiet = (toan <= 1.0 || van <= 1.0 || diem1 <= 1.0 || diem2 <= 1.0);
+            const isPassed = (dxtn >= 5.0) && !isLiet;
+
+            const m1Name = selectMon1.options[selectMon1.selectedIndex].text;
+            const m2Name = selectMon2.options[selectMon2.selectedIndex].text;
+
+            const sbdVal = document.getElementById('candidate-sbd').value.trim() || '12345678';
+            const typeVal = document.getElementById('candidate-type').value || 'THÍ SINH TỰ DO';
+
+            const record = {
+                id: Date.now(),
+                name: candidateName,
+                sbd: sbdVal,
+                type: typeVal,
+                date: new Date().toLocaleString('vi-VN', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit' }),
+                score: dxtn,
+                passed: isPassed,
+                summary: `Toán: ${toan} | Văn: ${van} | ${m1Name}: ${diem1} | ${m2Name}: ${diem2}`,
+                gpa: `L10: ${dtb10} | L11: ${dtb11} | L12: ${dtb12}`
+            };
+
+            // Post to Server API
+            fetch('/api/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(record)
+            })
+                .then(res => res.json())
+                .then(res => {
+                    if (res.success) {
+                        nameInput.value = '';
+                        loadHistory();
+                        showToast('Đã lưu kết quả lên Server DB thành công!');
+                    } else {
+                        showToast('Lỗi lưu lịch sử.');
+                    }
+                })
+                .catch(err => {
+                    console.error('Server save error, falling back to local:', err);
+                    historyList.unshift(record);
+                    localStorage.setItem('dxtn_history_2026', JSON.stringify(historyList));
+                    nameInput.value = '';
+                    renderHistory();
+                    showToast('Đã lưu kết quả cục bộ (Ngoại tuyến).');
+                });
+        });
+
+        // History Log - Render items in UI
+        function renderHistory() {
+            const container = document.getElementById('history-items');
+            container.innerHTML = '';
+
+            if (historyList.length === 0) {
+                container.innerHTML = '<div class="empty-history">Chưa có thí sinh nào trong bảng xếp hạng.</div>';
+                return;
+            }
+
+            // Sort historyList by score descending to form a leaderboard
+            const sortedHistory = [...historyList].sort((a, b) => b.score - a.score);
+
+            sortedHistory.forEach((item, index) => {
+                const borderClass = item.passed ? 'border-passed' : 'border-failed';
+                const badgeClass = item.passed ? 'bg-passed' : 'bg-failed';
+                const badgeText = item.passed ? 'ĐỖ' : 'TRƯỢT';
+
+                const cardDiv = document.createElement('div');
+                cardDiv.className = `history-item-card ${borderClass}`;
+
+                // Setup rank badge wrapper class and content
+                let rankClass = 'rank-default';
+                let rankContent = `${index + 1}`;
+                if (index === 0) {
+                    rankClass = 'rank-gold';
+                    rankContent = '🥇';
+                } else if (index === 1) {
+                    rankClass = 'rank-silver';
+                    rankContent = '🥈';
+                } else if (index === 2) {
+                    rankClass = 'rank-bronze';
+                    rankContent = '🥉';
+                }
+
+                cardDiv.innerHTML = `
+                    <div class="history-item-header">
+                        <span class="history-item-name" style="display: flex; align-items: center; gap: 8px;">
+                            <span class="rank-badge-wrapper ${rankClass}">${rankContent}</span>
+                            <span>
+                                <strong style="font-weight: 700; font-size: 0.95rem; color: var(--text-primary);">${escapeHtml(item.name)}</strong>
+                                <span style="font-weight: 500; font-size: 0.78rem; color: var(--text-muted); display: block; margin-top: 2px;">
+                                    SBD: ${escapeHtml(item.sbd)} | ${escapeHtml(item.type)}
+                                </span>
+                            </span>
+                        </span>
+                        <span class="history-item-badge ${badgeClass}">${badgeText} | ${item.score.toFixed(2)} đ</span>
+                    </div>
+                    <div class="history-item-details" style="margin-top: 8px; padding-left: 36px; line-height: 1.5;">
+                        <strong>Điểm thi:</strong> ${escapeHtml(item.summary)}<br>
+                        <strong>Học bạ:</strong> ${escapeHtml(item.gpa)}
+                    </div>
+                    <div class="history-item-meta" style="margin-top: 6px; padding-left: 36px; font-size: 0.72rem; color: var(--text-muted);">
+                        Ngày cập nhật: ${escapeHtml(item.date)}
+                    </div>
+                `;
+                container.appendChild(cardDiv);
+            });
+        }
+
+        // Render Canvas image and download (SEO & Social Marketing - Upgrade 4)
+        btnDownloadImage.addEventListener('click', () => {
+            const canvas = document.getElementById('share-canvas');
+            const ctx = canvas.getContext('2d');
+
+            const toanVal = document.getElementById('toan').value;
+            const vanVal = document.getElementById('van').value;
+            const diem1Val = document.getElementById('diem1').value;
+            const diem2Val = document.getElementById('diem2').value;
+            const dtb10Val = document.getElementById('dtb10').value;
+            const dtb11Val = document.getElementById('dtb11').value;
+            const dtb12Val = document.getElementById('dtb12').value;
+
+            const dxtnText = document.getElementById('score-value').textContent;
+            const isPassed = document.getElementById('status-badge').classList.contains('passed');
+            const name = document.getElementById('candidate-name').value.trim() || 'Nguyễn Văn A';
+            const sbdVal = document.getElementById('candidate-sbd').value.trim() || '12345678';
+            const typeVal = document.getElementById('candidate-type').value || 'THÍ SINH TỰ DO';
+
+            // Calculate values for output
+            const toan = parseFloat(toanVal) || 0;
+            const van = parseFloat(vanVal) || 0;
+            const diem1 = parseFloat(diem1Val) || 0;
+            const diem2 = parseFloat(diem2Val) || 0;
+            const dtb10 = parseFloat(dtb10Val) || 0;
+            const dtb11 = parseFloat(dtb11Val) || 0;
+            const dtb12 = parseFloat(dtb12Val) || 0;
+            const diemut = parseFloat(document.getElementById('diemut').value) || 0;
+            const diemkk = parseFloat(document.getElementById('diemkk').value) || 0;
+
+            const tong4mon = toan + van + diem1 + diem2;
+            const diemThiTB = tong4mon / 4;
+            const dtbHocBa = (dtb10 * 1 + dtb11 * 2 + dtb12 * 3) / 6;
+
+            const m1Name = selectMon1.options[selectMon1.selectedIndex].text;
+            const m2Name = selectMon2.options[selectMon2.selectedIndex].text;
+
+            // 1. Draw solid dark background (#050816)
+            ctx.fillStyle = '#050816';
+            ctx.fillRect(0, 0, 1200, 1200);
+
+            // 2. Draw soft ambient glows in corners
+            const bgGlow1 = ctx.createRadialGradient(200, 200, 0, 200, 200, 500);
+            bgGlow1.addColorStop(0, 'rgba(99, 102, 241, 0.08)');
+            bgGlow1.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = bgGlow1;
+            ctx.beginPath();
+            ctx.arc(200, 200, 500, 0, 2 * Math.PI);
+            ctx.fill();
+
+            const bgGlow2 = ctx.createRadialGradient(1000, 1000, 0, 1000, 1000, 500);
+            bgGlow2.addColorStop(0, 'rgba(6, 182, 212, 0.08)');
+            bgGlow2.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = bgGlow2;
+            ctx.beginPath();
+            ctx.arc(1000, 1000, 500, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // 3. Draw Outer Card content container (Glassmorphism card)
+            ctx.fillStyle = 'rgba(10, 15, 30, 0.7)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.roundRect(50, 50, 1100, 1100, 24);
+            ctx.fill();
+            ctx.stroke();
+
+            // 4. Header Section
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 28px "Plus Jakarta Sans", sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('🏆  PHIẾU BÁO ĐIỂM THPT 2026', 100, 115);
+
+            ctx.font = '500 15px "Plus Jakarta Sans", sans-serif';
+            ctx.fillStyle = '#64748b';
+            ctx.fillText('Hệ thống tra cứu và tính điểm xét tốt nghiệp THPT tự động', 100, 155);
+
+
+            // 5. Candidate Info Section (Horizontal Boarding Pass style)
+            // Divider 1
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(100, 190);
+            ctx.lineTo(1100, 190);
+            ctx.stroke();
+
+            // Info Details Column 1: Họ tên
+            ctx.fillStyle = '#64748b';
+            ctx.font = '500 14px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('Họ và tên:', 100, 220);
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 16px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(name.toUpperCase(), 100, 245);
+
+            // Info Details Column 2: Số báo danh
+            ctx.fillStyle = '#64748b';
+            ctx.font = '500 14px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('Số báo danh:', 420, 220);
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 16px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(sbdVal, 420, 245);
+
+            // Info Details Column 3: Loại thí sinh
+            ctx.fillStyle = '#64748b';
+            ctx.font = '500 14px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('Loại thí sinh:', 680, 220);
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 16px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(typeVal, 680, 245);
+
+            // Info Details Column 4: Ngày kết xuất
+            ctx.fillStyle = '#64748b';
+            ctx.font = '500 14px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('Ngày xuất bản:', 930, 220);
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 15px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(new Date().toLocaleString('vi-VN'), 930, 245);
+
+            // Divider 2
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(100, 280);
+            ctx.lineTo(1100, 280);
+            ctx.stroke();
+
+            // 6. Dual Columns Section (Grades Layout with Cards)
+            // Draw Panel cards for visual structure
+            // Left Panel Card
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(100, 310, 370, 380, 16);
+            ctx.fill();
+            ctx.stroke();
+
+            // Right Panel Card
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(730, 310, 370, 380, 16);
+            ctx.fill();
+            ctx.stroke();
+
+            // Helper function to draw rows beautifully
+            const drawRow = (label, val, xStart, xEnd, y) => {
+                ctx.fillStyle = '#e2e8f0';
+                ctx.font = '600 16px "Plus Jakarta Sans", sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText(label, xStart, y);
+
+                ctx.textAlign = 'right';
+                ctx.fillStyle = '#ffffff';
+                ctx.fillText(val, xEnd, y);
+
+                const textWidth = ctx.measureText(label).width;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([2, 5]);
+                ctx.beginPath();
+                ctx.moveTo(xStart + textWidth + 12, y - 5);
+                ctx.lineTo(xEnd - 55, y - 5);
+                ctx.stroke();
+                ctx.setLineDash([]);
+            };
+
+            // Left Column Content: BẢNG ĐIỂM THI
+            ctx.fillStyle = '#00f2fe';
+            ctx.font = 'bold 18px "Plus Jakarta Sans", sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('📊 BẢNG ĐIỂM THI', 120, 355);
+
+            drawRow('Toán', toanVal + ' đ', 120, 450, 410);
+            drawRow('Ngữ Văn', vanVal + ' đ', 120, 450, 455);
+            drawRow(m1Name, diem1Val + ' đ', 120, 450, 500);
+            drawRow(m2Name, diem2Val + ' đ', 120, 450, 545);
+
+            // Divider inside Left card
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(120, 585);
+            ctx.lineTo(450, 585);
+            ctx.stroke();
+
+            // Left Summary
+            drawRow('Tổng 4 môn thi', tong4mon.toFixed(2) + ' đ', 120, 450, 625);
+            drawRow('Điểm thi TB', diemThiTB.toFixed(2) + ' đ', 120, 450, 660);
+
+            // Right Column Content: HỌC BẠ THPT
+            ctx.fillStyle = '#00f2fe';
+            ctx.font = 'bold 18px "Plus Jakarta Sans", sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('📚 HỌC BẠ THPT', 750, 355);
+
+            drawRow('Lớp 10 (x1)', dtb10Val + ' đ', 750, 1080, 410);
+            drawRow('Lớp 11 (x2)', dtb11Val + ' đ', 750, 1080, 455);
+            drawRow('Lớp 12 (x3)', dtb12Val + ' đ', 750, 1080, 500);
+            drawRow('ĐTB học bạ', dtbHocBa.toFixed(2) + ' đ', 750, 1080, 545);
+
+            // Divider inside Right card
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(750, 585);
+            ctx.lineTo(1080, 585);
+            ctx.stroke();
+
+            // Right Summary
+            drawRow('Điểm khuyến khích', diemkk.toFixed(2) + ' đ', 750, 1080, 625);
+            drawRow('Điểm ưu tiên', diemut.toFixed(2) + ' đ', 750, 1080, 660);
+
+            // 7. Central Column Element (Điểm xét tốt nghiệp)
+            // Radial glow behind circle (green/cyan gradient overlay)
+            const circleGlow = ctx.createRadialGradient(600, 500, 0, 600, 500, 130);
+            circleGlow.addColorStop(0, isPassed ? 'rgba(16, 185, 129, 0.22)' : 'rgba(244, 63, 94, 0.22)');
+            circleGlow.addColorStop(0.5, isPassed ? 'rgba(6, 182, 212, 0.1)' : 'rgba(244, 63, 94, 0.1)');
+            circleGlow.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = circleGlow;
+            ctx.beginPath();
+            ctx.arc(600, 500, 130, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Frosted glass circle overlay
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.8)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.arc(600, 500, 85, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // Glow border stroke
+            ctx.strokeStyle = isPassed ? 'rgba(16, 185, 129, 0.45)' : 'rgba(244, 63, 94, 0.45)';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(600, 500, 85, -Math.PI / 2, Math.PI);
+            ctx.stroke();
+
+            // Label text inside circle
+            ctx.fillStyle = '#64748b';
+            ctx.font = 'bold 11px "Plus Jakarta Sans", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('ĐIỂM XÉT TỐT NGHIỆP', 600, 460);
+
+            // DXTN Value text
+            const textGrad = ctx.createLinearGradient(560, 480, 640, 530);
+            if (isPassed) {
+                textGrad.addColorStop(0, '#00f2fe');
+                textGrad.addColorStop(1, '#4facfe');
+            } else {
+                textGrad.addColorStop(0, '#f43f5e');
+                textGrad.addColorStop(1, '#fb7185');
+            }
+            ctx.fillStyle = textGrad;
+            ctx.font = 'bold 54px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(dxtnText, 600, 520);
+
+            // Status label below (Pill badge style)
+            ctx.fillStyle = isPassed ? 'rgba(16, 185, 129, 0.15)' : 'rgba(244, 63, 94, 0.15)';
+            ctx.strokeStyle = isPassed ? 'rgba(16, 185, 129, 0.3)' : 'rgba(244, 63, 94, 0.3)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(505, 620, 190, 36, 18);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = isPassed ? '#10b981' : '#f43f5e';
+            ctx.font = 'bold 11px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(isPassed ? '✅ ĐỦ ĐIỀU KIỆN TỐT NGHIỆP' : '❌ CHƯA ĐỦ ĐIỀU KIỆN TỐT NGHIỆP', 600, 642);
+
+            // Subtitle note
+            ctx.fillStyle = '#64748b';
+            ctx.font = '500 13px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('Đây chỉ là điểm tham khảo', 600, 675);
+
+            // 8. Bottom Half: BIỂU ĐỒ PHÂN TÍCH NĂNG LỰC
+            // Draw Panel Card for Chart
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(100, 710, 1000, 360, 20);
+            ctx.fill();
+            ctx.stroke();
+
+            // Chart Header
+            ctx.fillStyle = '#64748b';
+            ctx.font = 'bold 16px "Plus Jakarta Sans", sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('📈 BIỂU ĐỒ PHÂN TÍCH NĂNG LỰC HỌC TẬP', 130, 755);
+
+            // Chart Y-Axis Labels & Grid Lines
+            const chartBaselineY = 1010;
+            const chartTopY = 810;
+            const chartHeight = chartBaselineY - chartTopY; // 200px
+
+            const ticks = [10.0, 8.0, 6.0, 4.0, 2.0, 0.0];
+            ticks.forEach(tick => {
+                const tickY = chartBaselineY - (tick / 10) * chartHeight;
+                ctx.fillStyle = '#64748b';
+                ctx.font = 'bold 12px "Plus Jakarta Sans", sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText(tick.toFixed(1), 130, tickY + 4);
+
+                // Grid line
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(180, tickY);
+                ctx.lineTo(1020, tickY);
+                ctx.stroke();
+            });
+
+            // Draw Bars (Centered spacing for 5 elements in 800px width)
+            const barData = [
+                { val: toan, label: 'Toán', startColor: '#6366f1', endColor: '#4f46e5' },
+                { val: van, label: 'Ngữ Văn', startColor: '#818cf8', endColor: '#6366f1' },
+                { val: diem1, label: m1Name, startColor: '#06b6d4', endColor: '#0891b2' },
+                { val: diem2, label: m2Name, startColor: '#22d3ee', endColor: '#06b6d4' },
+                { val: dtbHocBa, label: 'ĐTB Học bạ', startColor: '#f59e0b', endColor: '#d97706' }
+            ];
+
+            const chartStartX = 240;
+            const chartEndX = 960;
+            const chartWidth = chartEndX - chartStartX; // 720px
+            const barSpacing = chartWidth / 4; // 180px
+
+            barData.forEach((bar, index) => {
+                const barX = chartStartX + index * barSpacing; // Exact alignment
+                const valClamped = Math.min(10, Math.max(0, bar.val));
+                const barH = (valClamped / 10) * chartHeight;
+                const barY = chartBaselineY - barH;
+
+                if (barH > 0) {
+                    const barGrad = ctx.createLinearGradient(barX - 24, barY, barX + 24, chartBaselineY);
+                    barGrad.addColorStop(0, bar.startColor);
+                    barGrad.addColorStop(1, bar.endColor);
+                    ctx.fillStyle = barGrad;
+
+                    ctx.beginPath();
+                    ctx.roundRect(barX - 24, barY, 48, barH, [8, 8, 0, 0]);
+                    ctx.fill();
+                }
+
+                // Draw score text on top of bar
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 14px "Plus Jakarta Sans", sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(bar.val.toFixed(2), barX, barY - 10);
+
+                // Draw label below baseline
+                ctx.fillStyle = '#64748b';
+                ctx.font = 'bold 13px "Plus Jakarta Sans", sans-serif';
+                ctx.fillText(bar.label, barX, chartBaselineY + 25);
+            });
+
+            // 9. Footer Section
+            // Divider 3
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(100, 1100);
+            ctx.lineTo(1100, 1100);
+            ctx.stroke();
+
+            // Left
+            ctx.fillStyle = '#64748b';
+            ctx.font = 'bold 12px "Plus Jakarta Sans", sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('LƯU Ý : CHỈ LÀ KẾT QUẢ THAM KHẢO', 100, 1135);
+
+            // Right
+            ctx.textAlign = 'right';
+            ctx.font = '500 13px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('Made by Mavrixdev 💖', 1100, 1135);
+
+            // Check if Web Share API is available and can share files
+            canvas.toBlob((blob) => {
+                if (!blob) {
+                    // Fallback to direct download
+                    const link = document.createElement('a');
+                    link.download = `BaoDiem2026_${name.replace(/\s+/g, '_')}.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    showToast('Đã tải ảnh báo điểm về máy.');
+                    return;
+                }
+
+                const file = new File([blob], `BaoDiem2026_${name.replace(/\s+/g, '_')}.png`, { type: 'image/png' });
+
+                if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+                    navigator.share({
+                        files: [file],
+                        title: 'Phiếu Báo Điểm THPT 2026',
+                        text: `Kết quả tính điểm xét tốt nghiệp THPT 2026 của thí sinh ${name}: ${dxtnText} điểm.`
+                    })
+                        .then(() => showToast('Đã chia sẻ phiếu báo điểm thành công!'))
+                        .catch((err) => {
+                            console.error('Sharing failed, downloading instead:', err);
+                            const link = document.createElement('a');
+                            link.download = `BaoDiem2026_${name.replace(/\s+/g, '_')}.png`;
+                            link.href = canvas.toDataURL('image/png');
+                            link.click();
+                            showToast('Đã tải ảnh báo điểm về máy.');
+                        });
+                } else {
+                    // Fallback download
+                    const link = document.createElement('a');
+                    link.download = `BaoDiem2026_${name.replace(/\s+/g, '_')}.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    showToast('Đã tự động tải ảnh báo điểm về máy.');
+                }
+            }, 'image/png');
+        });
+
+        // Trigger native print flow
+        btnPrint.addEventListener('click', () => {
+            const nameInput = document.getElementById('candidate-name').value.trim();
+            const displayName = nameInput || 'Thí sinh tự do';
+
+            document.getElementById('print-name-value').textContent = displayName;
+            document.getElementById('print-time-value').textContent = new Date().toLocaleString('vi-VN');
+            window.print();
+        });
+
+        // Toast message system
+        function showToast(msg) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = msg;
+            container.appendChild(toast);
+
+            setTimeout(() => toast.classList.add('show'), 10);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Safety HTML String Escaper
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+
+</html>

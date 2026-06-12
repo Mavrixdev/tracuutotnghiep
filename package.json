@@ -1,0 +1,16 @@
+{
+  "name": "tracuudiem-2026",
+  "version": "1.0.0",
+  "description": "Hệ thống Tra Cứu & Tính Điểm Xét Tốt Nghiệp THPT 2026 - Bản Nâng Cấp Thực Tế",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@vercel/kv": "^3.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "author": "Antigravity Senior Fullstack Developer",
+  "license": "ISC"
+}
