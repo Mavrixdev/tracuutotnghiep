@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="light">
+<html lang="vi" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tính Điểm Xét Tốt Nghiệp THPT 2026 - Bản Nâng Cấp Thực Tế</title>
+    <title>Tính Điểm Xét Tốt Nghiệp THPT 2026</title>
 
     <!-- SEO Tags -->
     <meta name="description"
@@ -12,8 +12,7 @@
     <meta property="og:title" content="Tính Điểm Xét Tốt Nghiệp THPT 2026 - Chuẩn Quy Định Mới Bộ GD&ĐT">
     <meta property="og:description"
         content="Tính điểm xét tốt nghiệp THPT 2026 trực quan, chính xác nhất. Hỗ trợ tra cứu tổ hợp khối thi Đại học và xuất phiếu điểm.">
-    <meta property="og:image"
-        content="https://upload.wikimedia.org/wikipedia/vi/d/d4/Logo_B%E1%BB%99_Gi%C3%A1o_d%E1%BB%A5c_v%C3%A0_%C4%90%C3%A0o_t%E1%BA%A1o.png">
+    <meta property="og:image" content="/logo.png">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Structured SEO Schema -->
@@ -33,6 +32,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/png" href="/logo.png">
 
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -822,7 +822,7 @@
             margin-right: 8px;
             box-shadow: var(--shadow-sm);
         }
-        
+
         .rank-gold {
             background: linear-gradient(135deg, #ffe066 0%, #f59e0b 100%);
             color: #78350f;
@@ -1197,18 +1197,19 @@
         <!-- HEADER TOPBAR -->
         <header class="app-header">
             <div class="logo-area">
-                <div class="logo-icon">🎓</div>
+                <img src="/logo.png" alt="Logo"
+                    style="height: 44px; border-radius: var(--radius-sm); object-fit: contain;">
                 <div>
                     <h1 class="logo-title">Xét Tốt Nghiệp THPT 2026</h1>
-                    <span class="logo-subtitle">Bản nâng cấp Fullstack tích hợp Analytics & Admissions</span>
+                    <span class="logo-subtitle">Hệ thống Tra Cứu & Tính Điểm Xét Tốt Nghiệp THPT 2026</span>
                 </div>
             </div>
             <div class="header-actions">
                 <button id="theme-toggle" class="btn-icon" title="Đổi giao diện Sáng / Tối">
-                    <!-- Sun icon -->
+                    <!-- Sun icon (visible by default in dark mode) -->
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round" style="display:none;">
+                        stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
                         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -1219,10 +1220,10 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
-                    <!-- Moon icon -->
+                    <!-- Moon icon (hidden by default in dark mode) -->
                     <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round">
+                        stroke-linejoin="round" style="display:none;">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
@@ -1610,7 +1611,7 @@
 
         // Toggle and Load Themes
         function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
             updateThemeIcons(savedTheme);
         }
@@ -1643,7 +1644,7 @@
             const textColor = theme === 'dark' ? '#f8fafc' : '#0f172a';
             const gridColor = theme === 'dark' ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.05)';
             const primaryColor = theme === 'dark' ? '#6366f1' : '#4f46e5';
-            const barColors = theme === 'dark' ? 
+            const barColors = theme === 'dark' ?
                 ['#6366f1', '#818cf8', '#22d3ee', '#67e8f9', '#34d399', '#fbbf24'] :
                 ['#4f46e5', '#818cf8', '#06b6d4', '#22d3ee', '#10b981', '#f59e0b'];
 
@@ -1923,7 +1924,7 @@
             const textColor = theme === 'dark' ? '#f8fafc' : '#0f172a';
             const gridColor = theme === 'dark' ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.05)';
             const primaryColor = theme === 'dark' ? '#6366f1' : '#4f46e5';
-            const barColors = theme === 'dark' ? 
+            const barColors = theme === 'dark' ?
                 ['#6366f1', '#818cf8', '#22d3ee', '#67e8f9', '#34d399', '#fbbf24'] :
                 ['#4f46e5', '#818cf8', '#06b6d4', '#22d3ee', '#10b981', '#f59e0b'];
 
